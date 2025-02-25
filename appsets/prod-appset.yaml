@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prod-appset
+spec:
+  goTemplating: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/gagessele/argocd-poc.git
+      revision: HEAD
+      directories:
+      - path: apps/*/envs/prod
+  template:
+    metadata:
+      name: '{{index .path.segments 1}}-{{index .path.segments 3}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/gagessele/argocd-poc.git
+        targetRevision: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 1}}-{{index .path.segments 3}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
