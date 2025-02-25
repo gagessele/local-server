@@ -18,7 +18,8 @@ spec:
       project: default
       source:
         repoURL: https://github.com/gagessele/argocd-poc.git
-        targetRevision: '{{.path.path}}'
+        targetRevision: HEAD
+        path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{index .path.segments 1}}-{{index .path.segments 3}}'
