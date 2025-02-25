@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   name: prod-appset
 spec:
-  goTemplating: true
+  goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
