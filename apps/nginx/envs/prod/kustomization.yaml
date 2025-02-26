@@ -7,3 +7,4 @@ resources:
 patches:
 - path: replicas.yaml
 - path: version.yaml
+- path: settings.yaml
