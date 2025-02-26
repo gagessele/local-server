@@ -22,7 +22,7 @@ argocd admin initial-password -n argocd
 Use password on the following command:
 
 ```bash
-argocd login localhost:8080
+argocd login localhost:8080 --insecure
 ```
 
 ## Creating apps
