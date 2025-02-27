@@ -24,7 +24,7 @@ spec:
         path: apps/simple-server/envs/staging
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'preview-{{.branch.slug}}'
+        namespace: 'preview-{{.branch_slug}}'
       syncPolicy:
         automated:
           prune: true  
