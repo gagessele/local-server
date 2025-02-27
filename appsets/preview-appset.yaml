@@ -12,7 +12,7 @@ spec:
         repo: simple-server
         labels:
         - preview
-      requeueAfterSeconds: 180
+      requeueAfterSeconds: 1800
   template:
     metadata:
       name: 'simple-server-preview-{{.branch}}'
