@@ -1,6 +1,7 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: simple-server-deployment
 spec:
   replicas: 2
