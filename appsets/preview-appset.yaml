@@ -22,11 +22,15 @@ spec:
         repoURL: https://github.com/gagessele/simple-server-argo.git
         revision: HEAD
         path: apps/simple-server/envs/staging
+        kustomize:
+          nameSuffix: '{{.branch}}'
+          images:
+            - 'ghcr.io/gagessele/simple-server:pr-{{number}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'preview-{{.branch_slug}}'
+        namespace: staging
       syncPolicy:
         automated:
-          prune: true  
+          prune: true
         syncOptions:
         - CreateNamespace=true        
