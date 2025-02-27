@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/gagessele/simple-server.git
+        repoURL: https://github.com/gagessele/simple-server-argo.git
         revision: HEAD
         path: apps/simple-server/envs/staging
       destination:

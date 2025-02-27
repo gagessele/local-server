@@ -7,7 +7,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: https://github.com/gagessele/argocd-poc.git
+      repoURL: https://github.com/gagessele/simple-server-argo.git
       revision: HEAD
       directories:
       - path: apps/*/envs/prod
@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/gagessele/argocd-poc.git
+        repoURL: https://github.com/gagessele/simple-server-argo.git
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
