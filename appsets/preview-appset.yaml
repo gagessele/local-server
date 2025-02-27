@@ -13,20 +13,20 @@ spec:
         labels:
         - preview
       requeueAfterSeconds: 180
-    template:
-      metadata:
-        name: 'simple-server-preview-{{.branch}}'
-      spec:
-        project: default
-        source:
-          repoURL: https://github.com/gagessele/simple-server.git
-          revision: HEAD
-          path: apps/simple-server/envs/staging
-        destination:
-          server: https://kubernetes.default.svc
-          namespace: 'preview-{{.branch.slug}}'
-        syncPolicy:
-          automated:
-            prune: true  
-          syncOptions:
-          - CreateNamespace=true        
+  template:
+    metadata:
+      name: 'simple-server-preview-{{.branch}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/gagessele/simple-server.git
+        revision: HEAD
+        path: apps/simple-server/envs/staging
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'preview-{{.branch.slug}}'
+      syncPolicy:
+        automated:
+          prune: true  
+        syncOptions:
+        - CreateNamespace=true        
