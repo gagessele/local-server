@@ -19,8 +19,9 @@ spec:
       spec:
         project: default
         source:
-          repoURL: https://github.com/gagessele/argocd-poc.git
+          repoURL: https://github.com/gagessele/simple-server.git
           revision: HEAD
+          path: apps/simple-server/envs/staging
         destination:
           server: https://kubernetes.default.svc
           namespace: 'preview-{{.branch.slug}}'
