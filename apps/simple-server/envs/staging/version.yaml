@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: simple-server
-        image: ghcr.io/gagessele/simple-server:sha256-c8da7ea3a5a6351fe2d17afdcd24050932041d16258aec53a3e539a630c4485b.sig
+        image: ghcr.io/gagessele/simple-server:main
