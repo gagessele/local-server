@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: preview-appset
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - pullRequest:
+      github:
+        owner: gagessele
+        repo: simple-server
+        labels:
+        - preview
+      requeueAfterSeconds: 180
+    template:
+      metadata:
+        name: 'simple-server-preview-{{.branch}}'
+      spec:
+        project: default
+        source:
+          repoURL: https://github.com/gagessele/argocd-poc.git
+          revision: HEAD
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: 'preview-{{.branch.slug}}'
+        syncPolicy:
+        automated:
+          prune: true  
+        syncOptions:
+        - CreateNamespace=true        
