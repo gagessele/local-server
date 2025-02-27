@@ -23,7 +23,7 @@ spec:
         revision: HEAD
         path: apps/simple-server/envs/staging
         kustomize:
-          nameSuffix: '{{.branch}}'
+          nameSuffix: '-{{.branch}}'
           images:
             - 'ghcr.io/gagessele/simple-server:pr-{{.number}}'
       destination:
